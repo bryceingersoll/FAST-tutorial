@@ -64,11 +64,12 @@ Compiling FAST
 Once the packages need to compile FAST are downloaded, we can compile FAST
 using the makefile provided in the Compiling subdirectory of the FAST directory.
 You will first probably want to change::
-BITS = 32
+
+  BITS = 32
 
 to::
 
-BITS = 64
+  BITS = 64
 
 We then need to specify the location of source files for FAST, AeroDyn,
 InflowWind, and the NWTC Library. The easiest way to do this is to comment

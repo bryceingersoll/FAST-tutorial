@@ -75,25 +75,25 @@ We then need to specify the location of source files for FAST, AeroDyn,
 InflowWind, and the NWTC Library. The easiest way to do this is to comment
 out::
 
-ifeq ($(OS),Windows_NT)
-   NWTC_LIB_DIR= C:/Users/bjonkman/Documents/DATA/DesignCodes/miscellaneous/nwtc_subs/SVNdirectory/trunk/source
-   AERODYN_DIR = C:/Users/bjonkman/Documents/DATA/DesignCodes/simulators/AeroDyn/SVNdirectory/trunk/Source
-   WIND_DIR    = C:/Users/bjonkman/Documents/DATA/DesignCodes/simulators/InflowWind/SVNdirectory/trunk/Source
-   FAST_DIR    = C:/Users/bjonkman/Documents/DATA/DesignCodes/simulators/FAST/SVNdirectory/trunk/Source
-else
-   NWTC_LIB_DIR = $(HOME)/PC/CAEtools/Miscellaneous/NWTC_Library/trunk/source
-   AERODYN_DIR  = $(HOME)/PC/CAEtools/simulators/AeroDyn/SVNdirectory/trunk/Source
-   WIND_DIR     = $(HOME)/PC/CAEtools/simulators/InflowWind/SVNdirectory/trunk/Source
-   FAST_DIR     = $(HOME)/PC/CAEtools/simulators/FAST/SVNdirectory/trunk/Source
-endif
+  ifeq ($(OS),Windows_NT)
+     NWTC_LIB_DIR= C:/Users/bjonkman/Documents/DATA/DesignCodes/miscellaneous/nwtc_subs/SVNdirectory/trunk/source
+     AERODYN_DIR = C:/Users/bjonkman/Documents/DATA/DesignCodes/simulators/AeroDyn/SVNdirectory/trunk/Source
+     WIND_DIR    = C:/Users/bjonkman/Documents/DATA/DesignCodes/simulators/InflowWind/SVNdirectory/trunk/Source
+     FAST_DIR    = C:/Users/bjonkman/Documents/DATA/DesignCodes/simulators/FAST/SVNdirectory/trunk/Source
+  else
+     NWTC_LIB_DIR = $(HOME)/PC/CAEtools/Miscellaneous/NWTC_Library/trunk/source
+     AERODYN_DIR  = $(HOME)/PC/CAEtools/simulators/AeroDyn/SVNdirectory/trunk/Source
+     WIND_DIR     = $(HOME)/PC/CAEtools/simulators/InflowWind/SVNdirectory/trunk/Source
+     FAST_DIR     = $(HOME)/PC/CAEtools/simulators/FAST/SVNdirectory/trunk/Source
+  endif
 
 and replace the directory paths with the locations of the downloaded packages
 on your local system. For example, this might look like::
 
-NWTC_LIB_DIR = /Users/username/Documents/NWTC_Lib_v1.07.00b-mlb/source
-AERODYN_DIR = /Users/username/Documents/AD_v13.00.02a-bjj/Source
-WIND_DIR = /Users/username/Documents/InflowWind_v1.02.00c-bjj/Source
-FAST_DIR = /Users/username/Documents/FAST_v7.02.00d-bjj/Source
+  NWTC_LIB_DIR = /Users/username/Documents/NWTC_Lib_v1.07.00b-mlb/source
+  AERODYN_DIR = /Users/username/Documents/AD_v13.00.02a-bjj/Source
+  WIND_DIR = /Users/username/Documents/InflowWind_v1.02.00c-bjj/Source
+  FAST_DIR = /Users/username/Documents/FAST_v7.02.00d-bjj/Source
 
 In addition, it can be helpful to add the flag::
 
@@ -101,11 +101,11 @@ In addition, it can be helpful to add the flag::
 
 to FFLAGS. You also will probably want to change::
 
-PREC = SingPrec
+  PREC = SingPrec
 
 to::
 
-PREC = DoubPrec
+  PREC = DoubPrec
 
 Finally, change the OUTPUT_NAME to whatever you want the FAST unix executable
 to be called, and change DEST_DIR to where you want it be created.
@@ -118,10 +118,7 @@ make
 This should create the FAST executable, with the name and location specified
 using OUTPUT_NAME and DEST_DIR.
 
-.. note:: This FAST executable uses a specific pitch control routine.
-This pitch routine is in CertTest and called Pitch.ipt, and is specific
-for the WindPACT 15A1001 model wind turbine. We'll discuss later what to do
-for other wind turbine designs.
+.. note:: This FAST executable uses a specific pitch control routine. This pitch routine is in CertTest and called Pitch.ipt, and is specific for the WindPACT 15A1001 model wind turbine. We'll discuss later what to do for other wind turbine designs.
 
 Wind File Generation
 --------------------

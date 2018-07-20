@@ -169,7 +169,7 @@ outputs are listed at the end of the FAST .fst file. For example, we can specify
 that the force at the root in the edgewise direction be recorded, and a plot
 of this information is shown below.
 
-.. image:: RootFxc1_turb.png
+.. image:: ./RootFxc1_turb.png
 
 Wind Files
 ~~~~~~~~~~
@@ -177,9 +177,9 @@ Wind Files
 We also should specify the wind conditions of the simulation. An example of
 such conditions is shown below.
 
-.. image:: turb_windspeed.png
+.. image:: ./turb_windspeed.png
 
-.. image:: turb_winddir.png
+.. image:: ./turb_winddir.png
 
 
 .. toctree::

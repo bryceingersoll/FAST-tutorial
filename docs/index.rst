@@ -184,7 +184,9 @@ such conditions is shown below.
 
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
+
+   FAST tutorial
+   Getting Started
 
 
 

@@ -3,8 +3,17 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to FAST-tutorial's documentation!
-=========================================
+FAST tutorial
+=============
+
+The purpose of this tutorial is to help those that are unfamiliar with FAST to
+build and use it.
+
+Build FAST
+----------
+
+
+
 
 .. toctree::
    :maxdepth: 2

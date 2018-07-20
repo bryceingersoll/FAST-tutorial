@@ -152,25 +152,34 @@ is performed and recorded are:
 * DecFact
 
 The simulation time begins at 0.0 seconds, and ends at TMax. DT is the time step.
-As noted in the FAST user manual,
-
-::
-
-You should be careful to choose an appropriate value for DT because if DT is too small or too large, the numerical solution will become unstable.
-
 At the beginning of a FAST simulation, the data is often artificially noisy.
 To not record this data, set TStart to the simulation time when you want
 to start recording data. Finally, DecFact can be set so that FAST will output
 data only once each DecFact integration time steps.
 
-.. _address:: http://wind.nrel.gov/public/bjonkman/TestPage/FAST.pdf
+.. _address: http://wind.nrel.gov/public/bjonkman/TestPage/FAST.pdf
+
+.. note:: You should be careful to choose an appropriate value for DT because if DT is too small or too large, the numerical solution will become unstable.
 
 Defining Outputs
 ~~~~~~~~~~~~~~~~
 
+There are a number of outputs that can be specified to be recorded. The desired
+outputs are listed at the end of the FAST .fst file. For example, we can specify
+that the force at the root in the edgewise direction be recorded, and a plot
+of this information is shown below.
+
+.. image:: RootFxc1_turb.png
+
 Wind Files
 ~~~~~~~~~~
 
+We also should specify the wind conditions of the simulation. An example of
+such conditions is shown below.
+
+.. image:: turb_windspeed.png
+
+.. image:: turb_winddir.png
 
 
 .. toctree::

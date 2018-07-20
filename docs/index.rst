@@ -113,25 +113,63 @@ to be called, and change DEST_DIR to where you want it be created.
 We're now ready to compile the FAST executable. Go to the Compiling
 subdirectory in the FAST directory and run::
 
-make
+  make
 
 This should create the FAST executable, with the name and location specified
 using OUTPUT_NAME and DEST_DIR.
 
 .. note:: This FAST executable uses a specific pitch control routine. This pitch routine is in CertTest and called Pitch.ipt, and is specific for the WindPACT 15A1001 model wind turbine. We'll discuss later what to do for other wind turbine designs.
 
-Wind File Generation
---------------------
-
 Running FAST
 ------------
 
+Running FAST on the terminal is straightforward. Simply specify the path to
+the compiled FAST unix executable and the FAST input file (we'll
+discuss this file in a bit, which typically has a .fst extension). In the CertTest
+folder are a number of certification tests that should be run to check that
+everything was compiled correctly (also discussed later), but we can run one quickly
+now with the line::
+
+  ./FAST_64 CertTest/Test01.fst
+
 Useful Simulation Parameters
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+----------------------------
+
+All of the input parameters and files are discussed in detail in the FAST
+user manual (at this address_), but we discuss briefly here some of the
+parameters that are initially most helpful to be familiar with.
+
+Simulation Time
+~~~~~~~~~~~~~~~
+
+FAST performs a
+time based simulation, and the parameters that control in what time frame this
+is performed and recorded are:
+
+* TMax
+* DT
+* TStart
+* DecFact
+
+The simulation time begins at 0.0 seconds, and ends at TMax. DT is the time step.
+As noted in the FAST user manual,
+
+::
+
+You should be careful to choose an appropriate value for DT because if DT is too small or too large, the numerical solution will become unstable.
+
+At the beginning of a FAST simulation, the data is often artificially noisy.
+To not record this data, set TStart to the simulation time when you want
+to start recording data. Finally, DecFact can be set so that FAST will output
+data only once each DecFact integration time steps.
+
+.. _address:: http://wind.nrel.gov/public/bjonkman/TestPage/FAST.pdf
 
 Defining Outputs
 ~~~~~~~~~~~~~~~~
 
+Wind Files
+~~~~~~~~~~
 
 
 

@@ -161,34 +161,97 @@ data only once each DecFact integration time steps.
 
 .. note:: You should be careful to choose an appropriate value for DT because if DT is too small or too large, the numerical solution will become unstable.
 
+Defining the Turbine Design
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Different components of the wind turbine are defined in (among others)
+the main FAST input file,
+tower file, blade file, and Aerodyn file. It would be quite the task to generate
+your own FAST input files, but fortunately there are some reference designs
+available. Consider using the NREL-5MW-ref_ or the WindPACT-ref_ turbines in
+your studies, as well as the sample input files included in the FAST directory.
+
+.. _NREL-5MW-ref: http://wind.nrel.gov/public/jjonkman/NRELOffshrBsline5MW/
+.. _WindPACT-ref: https://github.com/IEAWindTask37/WindPACT-RWT
+
 Defining Outputs
 ~~~~~~~~~~~~~~~~
 
-There are a number of outputs that can be specified to be recorded. The desired
+There are a number of outputs that can be specified and recorded. The desired
 outputs are listed at the end of the FAST .fst file. For example, we can specify
 that the force at the root in the edgewise direction be recorded, and a plot
 of this information is shown below.
 
 .. image:: ./RootFxc1_turb.png
 
+Detailed descriptions of all possible outputs are given in the FAST user manual,
+but we briefly describe some useful tips to specify the outputs of the simulation.
+An example of an output is::
+
+  Spn2MLxb1
+
+This is the local edgewise moment of the first blade (1 at end of parameter name)
+at the second span station (2 in middle of name).
+To specify the locations of the span positions where we want to record data,
+we use the parameter::
+
+  BldGagNd
+
+In conjuction with::
+
+  RNodes
+
+These two parameters determine the locations of the virtual strain gages where
+loading and deflection data is recorded.
+BldGagNd is a parameter in the main FAST input file. It is a group of indices,
+where the values correspond to the locations listed in RNodes, a parameter in
+the Aerodyn input file. For example, if we set the following::
+
+  BldGagNd - 1,3
+  RNodes - 3,8,13,18
+
+Then loading and aerodynamic will be available at 3m and 13m along the length of
+the blade. As an example, if we wanted to record the flapwise moment at 13m
+along the length of the first blade, we would include::
+
+  Spn2MLyb1
+
+in the output section of the main FAST input file.
+
+The size of the BldGagNd array is limited by NBlGages, which is also a
+parameter in the main FAST input file. NBlGages is simply the length of the array.
+However, in version 7.0 of FAST, NBlGages cannot be greater than 7.
+
+.. note:: BldGagNd is one-based, not zero-based, with respect to the location
+values in RNodes.
+
 Wind Files
 ~~~~~~~~~~
 
-We also should specify the wind conditions of the simulation. An example of
-such conditions is shown below.
+We also should specify the wind conditions of the simulation. Examples of
+possible turbulent conditions are shown below.
 
 .. image:: ./turb_windspeed.png
 
 .. image:: ./turb_winddir.png
 
+Turbulent wind input files can be generated using NREL's tool TurbSim_, and
+non-turbulent wind input files can be generated using NREL's tool IECWind_.
+
+.. _IECWind: https://nwtc.nrel.gov/IECWind
+.. _TurbSim: https://nwtc.nrel.gov/TurbSim
 
 .. toctree::
    :maxdepth: 2
+   :caption: Contents
 
-   FAST tutorial
-   Getting Started
+Next Steps
+~~~~~~~~~~
 
+This tutorial will hopefully help you be able to do some initial turbine design
+analysis. For use in design optimization, please see our other tutorial_.
 
+_tutorial: https://surrmodel-tutorial.readthedocs.io/en/latest/
 
 Indices and tables
 ==================

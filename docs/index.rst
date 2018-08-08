@@ -251,7 +251,7 @@ Next Steps
 This tutorial will hopefully help you be able to do some initial turbine design
 analysis. For use in design optimization, please see our other tutorial_.
 
-_tutorial: https://surrmodel-tutorial.readthedocs.io/en/latest/
+.. _tutorial: https://surrmodel-tutorial.readthedocs.io/en/latest/
 
 Indices and tables
 ==================

@@ -168,11 +168,11 @@ Different components of the wind turbine are defined in (among others)
 the main FAST input file,
 tower file, blade file, and Aerodyn file. It would be quite the task to generate
 your own FAST input files, but fortunately there are some reference designs
-available. Consider using the NREL-5MW-ref_ or the WindPACT-ref_ turbines in
+available. Consider using the NREL5MW_ or the WindPACT_ reference turbines in
 your studies, as well as the sample input files included in the FAST directory.
 
-.. _NREL-5MW-ref: http://wind.nrel.gov/public/jjonkman/NRELOffshrBsline5MW/
-.. _WindPACT-ref: https://github.com/IEAWindTask37/WindPACT-RWT
+.. _NREL5MW: http://wind.nrel.gov/public/jjonkman/NRELOffshrBsline5MW/
+.. _WindPACT: https://github.com/IEAWindTask37/WindPACT-RWT
 
 Defining Outputs
 ~~~~~~~~~~~~~~~~
